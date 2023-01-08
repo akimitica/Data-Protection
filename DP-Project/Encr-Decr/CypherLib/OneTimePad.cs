@@ -60,7 +60,7 @@ namespace DP_Project
             return Encoding.ASCII.GetString(result);
         }
 
-        public byte[] Crypt(byte[] source, byte[] pad)
+        public static byte[] Crypt(byte[] source, byte[] pad)
         {
 			byte[] key = pad;
 			byte[] result = new byte[source.Length];

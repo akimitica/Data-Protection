@@ -18,7 +18,7 @@ namespace DP_Project
 
         public XXTEA() { }
 
-        public string Encrypt(string data, string key)
+        public static string Encrypt(string data, string key)
         {
             byte[] dataBytes = utf8.GetBytes(data);
             byte[] keyBytesIn = utf8.GetBytes(key);
@@ -102,16 +102,6 @@ namespace DP_Project
 
             return Convert.ToBase64String(retByte);
         }
-
-
-
-
-
-
-
-
-
-
 
         public string Decrypt(string data, string key)
         {

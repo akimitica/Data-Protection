@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DP_Project
+namespace DP_Project.Encr_Decr.CryptoHash
 {
     internal class SHA1
     {

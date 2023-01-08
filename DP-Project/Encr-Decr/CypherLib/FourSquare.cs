@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography.Xml;
 
-namespace DP_Project
+namespace DP_Project.Encr_Decr.CypherLib
 {
     internal class FourSquare
     {
+        private string pad;
+        private string alfabet;
+        private string prva_matrica = "";
+        private string druga_matrica = "";
         FourSquare()
         {
 
@@ -22,10 +26,6 @@ namespace DP_Project
             this.alfabet = "abcdefghijklmnoprstuvwxyz";
         }
 
-        private string pad;
-        private string alfabet;
-        private string prva_matrica = "";
-        private string druga_matrica = "";
 
         public string Pad
         {
@@ -83,7 +83,7 @@ namespace DP_Project
 
 
 
-        public string Crypt(string source)
+        public static string Crypt(string source)
         {
             string input = "";
             string output = "";

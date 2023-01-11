@@ -57,9 +57,38 @@ namespace DP_Project.Encr_Decr.Mode
             return result;
         }
 
-        public string Decrypt()
+        public string Decrypt(string pad, MODE mode, string source, OneTimePad oneTimePad)
         {
-            return String.Empty;
+            string[] sourceSplit = source.Split(' ');
+            byte[] key = Encoding.ASCII.GetBytes(pad);
+            string result = String.Empty;
+            int i = 0;
+            byte[] pom = Encoding.ASCII.GetBytes(IV);
+
+            while (sourceSplit[i] != null)
+            {
+                byte[] sourceSplitByte = Encoding.ASCII.GetBytes(sourceSplit[i]);
+                switch (mode)
+                {
+                    case (MODE.OneTimePad):
+                        pom = OneTimePad.Crypt(pom, key);
+                        break;
+                    case (MODE.FourSquare):
+                        pom = Encoding.ASCII.GetBytes(FourSquare.Crypt(Encoding.ASCII.GetString(pom)));
+                        break;
+                    case (MODE.XXTEA):
+                        pom = Encoding.ASCII.GetBytes(XXTEA.Encrypt(Encoding.ASCII.GetString(pom), Encoding.ASCII.GetString(key)));
+                        break;
+                }
+                byte[] res = new byte[sourceSplit.Length];
+                for (int j = 0; j < sourceSplit[i].Length; j++)
+                {
+                    res[j] = (byte)(pom[j] ^ sourceSplitByte[j]);
+                }
+                result = result + ' ' + Encoding.ASCII.GetString(res);
+                i++;
+            }
+            return result;
         }
     }
 }

@@ -83,7 +83,7 @@ namespace DP_Project.Encr_Decr.CypherLib
 
 
 
-        public static string Crypt(string source)
+        public string Crypt(string source)
         {
             string input = "";
             string output = "";

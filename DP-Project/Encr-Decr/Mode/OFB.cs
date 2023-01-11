@@ -40,7 +40,8 @@ namespace DP_Project.Encr_Decr.Mode
                         pom = OneTimePad.Crypt(pom, key);
                         break;
                     case (MODE.FourSquare):
-                        pom = Encoding.ASCII.GetBytes(FourSquare.Crypt(Encoding.ASCII.GetString(pom)));
+                        string b = Encoding.ASCII.GetString(pom);
+                        pom = Encoding.ASCII.GetBytes(b);
                         break;
                     case (MODE.XXTEA):
                         pom = Encoding.ASCII.GetBytes(XXTEA.Encrypt(Encoding.ASCII.GetString(pom), Encoding.ASCII.GetString(key)));
@@ -74,7 +75,8 @@ namespace DP_Project.Encr_Decr.Mode
                         pom = OneTimePad.Crypt(pom, key);
                         break;
                     case (MODE.FourSquare):
-                        pom = Encoding.ASCII.GetBytes(FourSquare.Crypt(Encoding.ASCII.GetString(pom)));
+                        string b = Encoding.ASCII.GetString(pom);
+                        pom = Encoding.ASCII.GetBytes(b);
                         break;
                     case (MODE.XXTEA):
                         pom = Encoding.ASCII.GetBytes(XXTEA.Encrypt(Encoding.ASCII.GetString(pom), Encoding.ASCII.GetString(key)));

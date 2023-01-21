@@ -34,9 +34,9 @@ namespace DP_Project
                 this.dictionary = value;
             }
         }
-        OneTimePad() { }
+        public OneTimePad() { }
 
-        OneTimePad(string oneTimePad, DataTable dict)
+        public OneTimePad(string oneTimePad, DataTable dict)
         {
             this.pad = oneTimePad;
             this.dictionary = dict;

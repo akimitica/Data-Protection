@@ -313,10 +313,6 @@ namespace DP_Project
 
         public byte[] Decrypt(byte[] data, byte[] key)
         {
-
-
-            //Convert.FromBase64String(data);
-            //iz stringa u niz bajtova
             byte[] dataBytes = data;
             byte[] keyBytesIn = key;
 
@@ -324,8 +320,7 @@ namespace DP_Project
             {
                 return null;
             }
-
-            //za slucaj da prosledjeni kljuc nije u odgovarajucem obliku (duzina manja od 16)
+            
             byte[] keyBytes = new byte[16];
             if (keyBytes.Length < 16)
             {

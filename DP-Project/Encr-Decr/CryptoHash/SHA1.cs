@@ -50,7 +50,7 @@ namespace DP_Project.Encr_Decr.CryptoHash
             return ComputeHash(nizBlokova);
         }
 
-        public byte[] ComputeHash(byte[][] niz) //niz blokova od po 64 bajta
+        public byte[] ComputeHash(byte[][] niz)
         {
             int brBlokova = niz.Length;
             for (int i = 0; i < brBlokova; i++)
@@ -67,7 +67,7 @@ namespace DP_Project.Encr_Decr.CryptoHash
                 }
                 uint a = h0, b = h1, c = h2, d = h3, e = h4;
                 uint f, k, temp;
-                for (j = 0; j < 80; j++) //runde
+                for (j = 0; j < 80; j++)
                 {
                     if (j <= 19)
                     {
@@ -116,9 +116,9 @@ namespace DP_Project.Encr_Decr.CryptoHash
         public byte[] PretvoriUIntUByte(uint[] niz)
         {
             int duzina = niz.Length * 4;
-            byte[] povratna_vrednost = new byte[duzina];
-            Buffer.BlockCopy(niz, 0, povratna_vrednost, 0, duzina);
-            return povratna_vrednost;
+            byte[] result = new byte[duzina];
+            Buffer.BlockCopy(niz, 0, result, 0, duzina);
+            return result;
         }
 
         public uint[] PretvoriUUint(byte[] niz)
@@ -127,7 +127,7 @@ namespace DP_Project.Encr_Decr.CryptoHash
             int duzina = duzina_niz / 4;
             if (duzina_niz % 4 != 0)
                 duzina++;
-            uint[] povratna_vrendost = new uint[duzina];
+            uint[] result = new uint[duzina];
             int j = 0;
             byte[] pom = new byte[4];
             for (int i = 0; i < duzina_niz; i = i + 4)
@@ -139,9 +139,9 @@ namespace DP_Project.Encr_Decr.CryptoHash
                     else
                         pom[k] = 0;
                 }
-                povratna_vrendost[j++] = BitConverter.ToUInt32(pom, 0);
+                result[j++] = BitConverter.ToUInt32(pom, 0);
             }
-            return povratna_vrendost;
+            return result;
         }
 
         public uint RotateLeft(uint value, int count)
